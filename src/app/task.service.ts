@@ -48,7 +48,6 @@ export class TaskService {
 
   updateTask(id: number, status: StatusType) {
     // complete the code to update a task's status...
-    console.log(id, status);
     this.taskList[id].status = status;
     return this.observer.next(this.taskList);
   }
