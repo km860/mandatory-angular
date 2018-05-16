@@ -1,0 +1,27 @@
+<!-- Add event binding for form submit... -->
+<form 
+  style="margin-bottom: 10px"
+  >
+
+  <!-- Apply ngModel to this input... -->
+  <input [(ngModel)] = "obj.title" name="title"
+      class="input"
+      type="text"
+      placeholder="title"
+  />
+  <!-- Markup for error messages... -->
+  <div class="error">
+  </div>
+
+  <!-- Apply ngModel to this input... -->
+  <input [(ngModel)] = "obj.description" name="description"
+      class="input"
+      type="text"
+      placeholder="description"
+  />
+
+  <!-- Disable button if form is invalid. -->
+  <button type="submit" (click)="save($event)">
+      Save
+  </button>
+</form>

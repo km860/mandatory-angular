@@ -1,0 +1,10 @@
+<div class="header">
+  <!-- Render status type for this task list here... -->
+  {{ statusType }}
+</div>
+<div *ngFor="let task of taskList">
+  <!-- <task *ngIf="statusType === 'NotStarted'"[task]="task" (statuschanged)="handleStatusChanged($event)"></task> -->
+  <task [task]="task" ></task>  
+</div>
+
+<!-- Markup for displaying all tasks that have the status type of this list set... -->
