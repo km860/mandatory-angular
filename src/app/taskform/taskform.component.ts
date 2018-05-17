@@ -17,7 +17,6 @@ export class TaskformComponent implements OnInit {
 
   }
   save() {
-    console.log(this.obj);
     this.onSave.emit(this.obj);
   }
 }

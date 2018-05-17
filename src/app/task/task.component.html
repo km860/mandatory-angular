@@ -2,12 +2,13 @@
   <div class="header">
     <div>
       <!-- Render title here... -->
-      {{ task.title }}
+      {{ task.title | uppercase }}
     </div>
     <div>
       <select (change)="changeStatus($event)">
         <option *ngFor="let statusType of statusTypes" 
-                value="{{ statusType }}">{{ statusType }}</option>
+                value="{{ statusType }}"
+                [selected]="statusType === task.status">{{ statusType }}</option>
       </select>
     </div>
     <!-- Markup for dropdown menu here... -->
@@ -16,7 +17,6 @@
   <div class="body">
     <!-- Render description here... -->
     {{ task.description }}
-    {{ task.id }}
     <div class="cross"><span (click)="onClick($event)">X</span></div>
   </div>
 </div>

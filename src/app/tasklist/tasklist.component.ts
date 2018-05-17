@@ -11,28 +11,14 @@ import { Task, StatusType } from '../constants';
 })
 export class TasklistComponent implements OnInit {
   @Input() statusType: StatusType;
-
   @Input() taskList: Task[];
 
   constructor(private taskService: TaskService) {
   }
 
   ngOnInit() {
-    /* console.error('on start: ', this.statusType);
-    this.tasks = [
-      {
-        id: 1,
-        status: this.statusType,
-        title: 'Test tittys',
-        description: 'desc',
-      }
-    ];
   }
-  handleStatusChanged(ev) {
-  } */
-  /* this.taskService.getTasks(StatusType.NotStarted)
-    .subscribe((list) => {
-      this.taskList = list;
-    }); */
+  handleStatusChanged(task) {
+    this.taskService.updateTask(task.id, task.status);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task, StatusType } from '../constants';
 import { TaskService } from '../task.service';
 
@@ -10,13 +10,16 @@ import { TaskService } from '../task.service';
 })
 export class TaskComponent {
   @Input() task: Task;
+  @Output() statusChanged = new EventEmitter<Task>();
   statusTypes: StatusType[] = [
     StatusType.NotStarted, StatusType.InProgress, StatusType.Completed
   ];
   constructor(private taskService: TaskService) {}
 
-  changeStatus(event) {
-    this.taskService.updateTask(this.task.id, event.target.value);
+  changeStatus(event: any) {
+    // this.taskService.updateTask(this.task.id, event.target.value);
+    this.task.status = event.target.value;
+    this.statusChanged.emit(this.task);
   }
 
   onClick(event) {

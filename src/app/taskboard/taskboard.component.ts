@@ -37,7 +37,7 @@ export class TaskboardComponent implements OnInit {
   }
   save(obj) {
     this.taskService.addTask(obj.title, obj.description);
-   // this.showForm = !this.showForm;
+    this.showForm = !this.showForm;
   }
 
 }

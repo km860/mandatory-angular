@@ -31,7 +31,6 @@ export class TaskService {
   }
 
   removeItem(id: number) {
-    console.log(id);
     this.taskList = this.taskList.filter((task) => {
       return task.id !== id;
     });
@@ -48,14 +47,19 @@ export class TaskService {
 
   updateTask(id: number, status: StatusType) {
     // complete the code to update a task's status...
-    this.taskList[id].status = status;
+    // this.taskList[id].status = status;
+    const taskIndex = this.taskList.findIndex((task) => {
+      return task.id === id;
+    });
+    this.taskList[taskIndex].status = status;
     return this.observer.next(this.taskList);
   }
 
   addTask(title: string, description: string) {
     // complete the code to add a task...
+    const datum = Date.now();
     this.taskList.push({
-      id: this.taskList.length,
+      id: datum,
       status: StatusType.NotStarted,
       title: title,
       description: description,
